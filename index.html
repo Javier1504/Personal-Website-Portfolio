@@ -1,0 +1,885 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Javier Nararya Aqsa Setiyono</title>
+  <meta name="description" content="CV & Portfolio — Fullstack Developer / DevOps" />
+  <meta name="theme-color" content="#070a12" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    section { scroll-margin-top: 88px; }
+
+    .bg-neo {
+      background:
+        radial-gradient(1200px 700px at 15% 10%, rgba(59,130,246,.18), transparent 55%),
+        radial-gradient(900px 600px at 85% 20%, rgba(168,85,247,.14), transparent 60%),
+        radial-gradient(900px 700px at 50% 95%, rgba(34,197,94,.10), transparent 55%),
+        linear-gradient(180deg, #060713 0%, #040611 55%, #03040b 100%);
+    }
+
+    .grain:before{
+      content:"";
+      position:fixed; inset:0;
+      pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");
+      opacity:.10;
+      mix-blend-mode:overlay;
+    }
+
+    .glass {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 10px 40px rgba(0,0,0,.35);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    /* FIX: hapus kata "suggest" yang bikin CSS invalid */
+    .lift { transition: transform .2s ease, box-shadow .2s ease; }
+    .lift:hover { transform: translateY(-4px); box-shadow: 0 14px 55px rgba(0,0,0,.45); }
+
+    .reveal { opacity: 0; transform: translateY(14px); transition: .6s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+
+    .hyphenate {
+      hyphens:auto; -webkit-hyphens:auto; -ms-hyphens:auto;
+      overflow-wrap: break-word; word-break: normal;
+    }
+
+    /* Foto kanan */
+    .hero-photo {
+      height: clamp(320px, 34vw, 520px);
+      overflow: hidden;
+    }
+    .hero-photo img { object-position: 50% 18%; }
+
+    /* ===== Elegant colorful pills (hero buttons) ===== */
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:.55rem 1rem;
+      border-radius:9999px;
+      font-size:.875rem;
+      font-weight:600;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: rgba(226,232,240,.95);
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease, filter .18s ease;
+    }
+    .pill:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(0,0,0,.32);
+      border-color: rgba(255,255,255,.18);
+      filter: saturate(1.08);
+    }
+    .pill:focus-visible{
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(56,189,248,.25), 0 14px 40px rgba(0,0,0,.32);
+    }
+
+    /* order: experiences, projects, skills, linkedin, github, blogspot */
+    .pill-exp{  background: linear-gradient(135deg, rgba(56,189,248,.20), rgba(59,130,246,.10)); }
+    .pill-proj{ background: linear-gradient(135deg, rgba(34,197,94,.18), rgba(16,185,129,.10)); }
+    .pill-skill{background: linear-gradient(135deg, rgba(168,85,247,.18), rgba(139,92,246,.10)); }
+    .pill-organization{background: linear-gradient(135deg, rgba(168,85,247,.18), rgba(139,92,246,.10)); }
+    .pill-link{ background: linear-gradient(135deg, rgba(14,165,233,.16), rgba(2,132,199,.10)); }
+    .pill-git{  background: linear-gradient(135deg, rgba(148,163,184,.16), rgba(100,116,139,.10)); }
+    .pill-blog{ background: linear-gradient(135deg, rgba(251,146,60,.16), rgba(245,158,11,.10)); }
+  </style>
+</head>
+
+<body class="bg-neo grain text-slate-100">
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-[#050714]/70 backdrop-blur">
+    <div class="mx-auto max-w-screen-xl px-5 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-2 font-semibold tracking-tight">
+        <span class="inline-flex h-2 w-2 rounded-full bg-sky-400"></span>
+        <span>Javier</span>
+        <span class="text-slate-400">/</span>
+        <span class="text-slate-300">Portfolio</span>
+      </a>
+
+      <div class="flex items-center gap-2">
+        <button id="copyBtn" class="rounded-xl px-3 py-2 text-xs border border-white/10 bg-white/5 hover:bg-white/10">
+          Copy Email
+        </button>
+        <a id="cvBtn" href="./assets/CV.pdf" download
+           class="rounded-xl px-3 py-2 text-xs font-semibold text-slate-950 bg-sky-400 hover:bg-sky-300">
+          Download CV
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="home" class="mx-auto max-w-screen-xl px-5 sm:px-6 lg:px-8">
+    <section class="py-10 sm:py-14">
+      <div class="grid lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+
+        <!-- LEFT -->
+        <div class="lg:col-span-7 reveal">
+          <div class="glass rounded-3xl p-6 sm:p-8 h-full lift">
+            <div class="flex flex-wrap items-center gap-2 text-xs text-slate-300">
+              <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1">
+                <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                About me
+              </span>
+            </div>
+
+            <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight">
+              Javier Nararya Aqsa Setiyono
+              <span class="block text-slate-200/95"></span>
+            </h1>
+
+            <!-- 3 highlight cards -->
+            <div class="mt-5 grid sm:grid-cols-3 gap-3">
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <div class="flex items-center gap-2 text-xs text-slate-400">
+                  <i data-lucide="code-2" class="w-4 h-4"></i> Software Engineering
+                </div>
+                <div class="mt-1 font-semibold">End-to-End Applications</div>
+              </div>
+
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <div class="flex items-center gap-2 text-xs text-slate-400">
+                  <i data-lucide="scan-eye" class="w-4 h-4"></i> Machine Learning
+                </div>
+                <div class="mt-1 font-semibold">Transformer • Captioning</div>
+              </div>
+
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <div class="flex items-center gap-2 text-xs text-slate-400">
+                  <i data-lucide="server" class="w-4 h-4"></i> Deployment
+                </div>
+                <div class="mt-1 font-semibold">Windows Server • IIS</div>
+              </div>
+            </div>
+
+            <p class="mt-5 text-slate-300 leading-relaxed hyphenate text-left sm:text-justify">
+              Informatics Engineering Graduate from Institut Teknologi Sepuluh Nopember (ITS) with a GPA of 3.59/4.00 (Cum Laude). Specialized in Computer Vision and Artificial Intelligence, with a primary research focus on Vision-Language Modeling through the development of Transformer-based Image Captioning systems and advanced Image Processing techniques.
+              I possess a deep technical background in architecting Automated Agentic AI for Intelligent Scraping, leveraging Large Language Models (LLMs) to automate complex data extraction workflows. My versatile engineering toolkit further includes developing immersive simulations as a Virtual Reality Developer and building robust end-to-end applications through Full-stack Software Engineering. By integrating heuristic methods like Particle Swarm Optimization (PSO) with modern deep learning frameworks, I aim to bridge the gap between sophisticated visual understanding and autonomous intelligent systems.
+            </p>
+
+            <!-- HERO BUTTONS (urut sesuai permintaan + colorful elegan) -->
+            <div class="mt-6 flex flex-wrap gap-2">
+              <a href="#experience" class="pill pill-exp">Working Experiences</a>
+              <a href="#projects" class="pill pill-proj">Projects</a>
+              <a href="#skills" class="pill pill-skill">Skills</a>
+              <a href="#organization" class="pill pill-organization">Organizational Experiences</a>
+
+              <a id="linkedin" href="#" target="_blank" rel="noreferrer" class="pill pill-link">LinkedIn</a>
+              <a id="github" href="#" target="_blank" rel="noreferrer" class="pill pill-git">GitHub</a>
+              <a id="blog" href="#" target="_blank" rel="noreferrer" class="pill pill-blog">Blogspot</a>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-2 text-xs text-slate-300">
+              <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1">ASP.NET Core Web API</span>
+              <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1">SQL Server</span>
+              <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1">React • Vue</span>
+              <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1">Transformer</span>
+              <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1">Laravel</span>
+              <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1">IIS • SSL</span>
+              <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1">Unity • Virtual Reality </span>
+              <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1">Automated Agentic AI </span>
+              <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1">LLMs </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <aside class="lg:col-span-5 reveal lg:sticky lg:top-24">
+          <div class="glass rounded-3xl overflow-hidden lift lg:max-w-[520px] lg:ml-auto flex flex-col">
+
+            <!-- PHOTO -->
+            <div class="relative hero-photo">
+              <img src="./assets/profile.jpg" alt="Profile" class="absolute inset-0 h-full w-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#050714] via-[#050714]/20 to-transparent"></div>
+
+              <div class="absolute top-4 left-4">
+                <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs text-slate-200">
+                  <span class="h-2 w-2 rounded-full bg-sky-400"></span>
+                  Profile
+                </span>
+              </div>
+
+              <div class="absolute bottom-5 left-6 right-6">
+                <div class="text-xl sm:text-2xl font-bold leading-tight">
+                  Javier Nararya Aqsa Setiyono
+                </div>
+                <div class="mt-1 text-sm text-slate-200/80">Surabaya, Indonesia</div>
+              </div>
+            </div>
+
+            <!-- INFO (KANAN: Email + WA only) -->
+            <div class="p-6 border-t border-white/10 mt-auto">
+              <div class="space-y-3 text-sm">
+                <div class="flex items-center justify-between gap-3">
+                  <span class="text-slate-300">Gmail</span>
+                  <span class="text-slate-100 font-medium" id="emailText">javiernararya93@gmail.com</span>
+                </div>
+
+                <div class="flex items-center justify-between gap-3">
+                  <span class="text-slate-300">Phone</span>
+                  <span class="text-slate-100 font-medium" id="phoneText">+62 812-4587-2525</span>
+                </div>
+
+                <div class="h-px bg-white/10 my-2"></div>
+              </div>
+
+              <div class="mt-5 grid grid-cols-2 gap-2">
+                <a id="emailBtnRight" href="#"
+                   class="rounded-xl px-3 py-2 text-xs font-semibold text-slate-950 bg-sky-400 hover:bg-sky-300 text-center">
+                  Gmail
+                </a>
+                <a id="waBtn" href="#" target="_blank" rel="noreferrer"
+                   class="rounded-xl px-3 py-2 text-xs border border-white/10 bg-white/5 hover:bg-white/10 text-center">
+                  WhatsApp
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- pengalaman -->
+    <section id="experience" class="py-14 border-t border-white/10">
+      <div class="reveal">
+        <h2 class="text-2xl font-bold">Working Experiences</h2>
+
+        <div class="mt-6 grid gap-4 lg:grid-cols-2 items-stretch">
+
+          <div class="glass rounded-2xl p-6 lift lg:col-span-2">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <div class="font-semibold">Junior Software Engineer - PT Sentra Vidya Utama (SEVIMA)</div>
+                <div class="text-sm text-slate-400 mt-1">Dec 2025 — Now</div>
+              </div>
+              <span class="text-xs rounded-full border border-white/10 bg-white/5 px-3 py-1 text-slate-300">
+                Work
+              </span>
+            </div>
+
+            <ul class="mt-4 text-sm text-slate-300 list-disc pl-5 space-y-1">
+              <li>Architected an Autonomous Agentic AI Framework to automate large-scale data acquisition for the maukuliah.id (SEVIMA) university database, significantly increasing data coverage and completeness through intelligent automation.</li>
+              <li>Engineered robust data extraction pipelines using Playwright, Chromium, and Puppeteer, conducting comprehensive audits within staging environments to ensure high-fidelity retrieval from complex web architectures.</li>
+              <li>Integrated Gemini LLM for intelligent parsing, leveraging Large Language Models to interpret unstructured content and map it into precise, predefined schemas, ensuring superior data integrity compared to traditional scraping methods.</li>
+            <ul class="mt-4 text-sm text-slate-300 list-disc pl-5 space-y-1"></ul>
+          </div>
+
+          <div class="glass rounded-2xl p-6 lift lg:col-span-2">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <div class="font-semibold">.Net developer - PT Mitra Transformasi Digital (Mitral)</div>
+                <div class="text-sm text-slate-400 mt-1">Nov 2025 — Now</div>
+              </div>
+              <span class="text-xs rounded-full border border-white/10 bg-white/5 px-3 py-1 text-slate-300">
+                Work
+              </span>
+            </div>
+
+            <ul class="mt-4 text-sm text-slate-300 list-disc pl-5 space-y-1">
+              <li>Engineered a Hybrid Conversational Platform integrating ChatGPT and Gemini LLMs with a human-in-the-loop answering system, developed using ASP.NET Core Web API and C# .NET.</li>
+              <li>Implemented Secure Authentication & Data Architecture by designing a Gmail-based OTP system and managing complex relational data using SQL Server and Entity Framework Core.</li>
+              <li>Managed Full-cycle Deployment & ERP Integration, including the successful deployment of the platform under HTTPS protocols for secure production and the development of business solutions utilizing the NextERP ecosystem.</li>
+            </ul>
+          </div>
+
+          <!-- 1 -->
+          <div class="glass rounded-2xl p-6 lift">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <div class="font-semibold">Lecturer Assistant of Database Systems (English Class)</div>
+                <div class="text-sm text-slate-400 mt-1">Sep 2023 — Dec 2023</div>
+              </div>
+              <span class="text-xs rounded-full border border-white/10 bg-white/5 px-3 py-1 text-slate-300">
+                Academic
+              </span>
+            </div>
+
+            <ul class="mt-4 text-sm text-slate-300 list-disc pl-5 space-y-1">
+              <li>Facilitated Advanced Database Education by teaching core concepts of Query Processing, Oracle DBMS, Relational Modeling, and Physical Database Design, ensuring students grasped both theoretical foundations and practical implementations.</li>
+              <li>Mentored and Evaluated 40+ Students, assisting faculty members in monitoring academic progress and assessing core competencies through rigorous practical and theoretical examinations.</li>
+              <li>Developed Standardized Assessment Materials, including the design and formulation of Mid-term (ETS) and Final (EAS) Examination questions to measure students' proficiency in complex database systems.</li>
+            </ul>
+          </div>
+
+          <!-- 2 -->
+          <div class="glass rounded-2xl p-6 lift">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <div class="font-semibold"> Practical Assistant of Database Systems</div>
+                <div class="text-sm text-slate-400 mt-1">Sep 2023 — Dec 2023</div>
+              </div>
+              <span class="text-xs rounded-full border border-white/10 bg-white/5 px-3 py-1 text-slate-300">
+                Academic
+              </span>
+            </div>
+
+            <ul class="mt-4 text-sm text-slate-300 list-disc pl-5 space-y-1">
+              <li>Developed Case-Study-Based Practicum Modules, designing complex real-world scenarios and their corresponding technical solutions using advanced SQL query optimization.</li>
+              <li>Led and Managed Systematic Laboratory Sessions for the entire Database Systems course, overseeing technical instruction and providing hands-on mentorship to ensure students' proficiency in database implementation.</li>
+            </ul>
+          </div>
+
+          <!-- 3 (✅ full width di layar besar) -->
+          <div class="glass rounded-2xl p-6 lift lg:col-span-2">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <div class="font-semibold">Data Science & Virtual Reality Development - Badan Pendapatan Daerah Jawa Timur (Bapenda Jatim)</div>
+                <div class="text-sm text-slate-400 mt-1">Agu 2024 — Dec 2024</div>
+              </div>
+              <span class="text-xs rounded-full border border-white/10 bg-white/5 px-3 py-1 text-slate-300">
+                Internship
+              </span>
+            </div>
+
+            <ul class="mt-4 text-sm text-slate-300 list-disc pl-5 space-y-1">
+              <li>Implemented Particle Swarm Optimization (PSO) to forecast regional revenue—including housing, land, and vehicle taxes—across a 5-year projection, demonstrating high-level proficiency in heuristic algorithms and predictive modeling.</li>
+              <li>Engineered Immersive Data Visualizations using Unity Engine, integrating Virtual Reality (VR) to enable interactive exploration of regional revenue statistics, bridging the gap between complex data analytics and intuitive user experiences.</li>
+              <li>Streamlined Internal Knowledge Management by contributing to comprehensive documentation and the development of technical supporting materials for internal organizational activities.</li>
+            </ul>
+          </div>
+
+          <div class="glass rounded-2xl p-6 lift">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <div class="font-semibold">Lecturer Assistant of Framework Programming</div>
+                <div class="text-sm text-slate-400 mt-1">Sep 2024 — Dec 2024</div>
+              </div>
+              <span class="text-xs rounded-full border border-white/10 bg-white/5 px-3 py-1 text-slate-300">
+                Academic
+              </span>
+            </div>
+
+            <ul class="mt-4 text-sm text-slate-300 list-disc pl-5 space-y-1">
+              <li>Instructed Advanced Full-Stack Development, covering modern frontend frameworks (Vue.js, React) and scalable backend architectures using Laravel and Node.js.</li>
+              <li>Orchestrated Technical Project Demonstrations to evaluate the competencies of 60+ students, providing critical feedback on software architecture, code quality, and UI/UX implementation.</li>
+              <li>Assisted in Competency Assessment for a large-scale cohort of 60+ students, ensuring academic standards were met through rigorous testing and hands-on technical evaluations.</li>
+            </ul>
+          </div>
+
+          <div class="glass rounded-2xl p-6 lift">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <div class="font-semibold">Lecturer Assistant of Computer Graphics</div>
+                <div class="text-sm text-slate-400 mt-1">Sep 2024 — Dec 2024</div>
+              </div>
+              <span class="text-xs rounded-full border border-white/10 bg-white/5 px-3 py-1 text-slate-300">
+                Academic
+              </span>
+            </div>
+
+            <ul class="mt-4 text-sm text-slate-300 list-disc pl-5 space-y-1">
+              <li>Instructed Computer Graphics Concepts, covering Unity Engine for game graphics and WebGL for object shadowing and particle effects.</li>
+              <li>Assisted in Teaching and Assessing Competency of 40+ Students in Computer Graphics.</li>
+            </ul>
+          </div>
+
+          <div class="glass rounded-2xl p-6 lift lg:col-span-2">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <div class="font-semibold">IT Support Software Tester and Documentation for Geographical Information System of Kapuas</div>
+                <div class="text-sm text-slate-400 mt-1">Agu 2024 — Dec 2024</div>
+              </div>
+              <span class="text-xs rounded-full border border-white/10 bg-white/5 px-3 py-1 text-slate-300">
+                Contract
+              </span>
+            </div>
+
+            <ul class="mt-4 text-sm text-slate-300 list-disc pl-5 space-y-1">
+              <li>Collaborated on a Faculty Research Project focusing on the functional testing and quality assurance of the Kapuas Geographic Information System (GIS), identifying critical bugs to ensure system stability and geospatial data accuracy.</li>
+              <li>Authored Comprehensive Technical Documentation and user manuals for the Kapuas GIS, translating complex system functionalities into accessible guides for end-users and stakeholders.</li>
+            </ul>
+          </div>
+
+          <div class="glass rounded-2xl p-6 lift">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <div class="font-semibold">Lecturer Assistant of Human Computer Interaction</div>
+                <div class="text-sm text-slate-400 mt-1">Feb 2025 — May 2025</div>
+              </div>
+              <span class="text-xs rounded-full border border-white/10 bg-white/5 px-3 py-1 text-slate-300">
+                Academic
+              </span>
+            </div>
+
+            <ul class="mt-4 text-sm text-slate-300 list-disc pl-5 space-y-1">
+              <li>Instructed Core Principles of Human-Computer Interaction (HCI), including UI/UX Design methodologies, ensuring students understood the synthesis between technical functionality and user-centric aesthetics.</li>
+              <li>Conducted project demo sessions for each group to assess student competencies.</li>
+              <li>Successfully assisted lecturers in teaching and evaluating the competencies of 120+ students.</li>
+            </ul>
+          </div>
+
+          <div class="glass rounded-2xl p-6 lift">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <div class="font-semibold">Website designer of SMAN 2 Surabaya</div>
+                <div class="text-sm text-slate-400 mt-1">Mar 2023 — Dec 2023</div>
+              </div>
+              <span class="text-xs rounded-full border border-white/10 bg-white/5 px-3 py-1 text-slate-300">
+                Project
+              </span>
+            </div>
+
+            <ul class="mt-4 text-sm text-slate-300 list-disc pl-5 space-y-1">
+              <li>Created a digital literacy website design for SMAN 2 Surabaya in a group setting.</li>
+              <li>Successfully developed a digital literacy website design for SMAN 2 Surabaya using Figma.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-14 border-t border-white/10">
+      <div class="reveal flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <h2 class="text-2xl font-bold">Projects</h2>
+        </div>
+
+        <div class="flex flex-wrap gap-2 items-center">
+          <select id="filter" class="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm">
+            <option value="all">All</option>
+            <option value="fullstack">Fullstack</option>
+            <option value="devops">Research</option>
+            <option value="ai">AI/ML</option>
+          </select>
+          <input id="search" placeholder="Search..."
+                 class="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm w-52" />
+        </div>
+      </div>
+
+      <div id="grid" class="mt-7 grid md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    </section>
+
+    <section id="organization" class="py-14 border-t border-white/10">
+  <div class="reveal">
+    <h2 class="text-2xl font-bold">Organizational Experiences</h2>
+
+    <div class="mt-6 grid gap-4 lg:grid-cols-2 items-stretch">
+
+      <!-- Full width -->
+      <div class="glass rounded-2xl p-6 lift lg:col-span-2">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <div class="font-semibold">
+              Human Resource - Himpunan Mahasiswa Teknik Computer-Informatika (HMTC)
+            </div>
+            <div class="text-sm text-slate-400 mt-1">Feb 2023 — Dec 2023</div>
+          </div>
+          <span class="text-xs rounded-full border border-white/10 bg-white/5 px-3 py-1 text-slate-300">
+            Himpunan Departemen
+          </span>
+        </div>
+
+        <ul class="mt-4 text-sm text-slate-300 list-disc pl-5 space-y-1">
+          <li>Demonstrated Leadership in Community Engagement, fostering team synergy and operational efficiency during high-traffic campus events and competitive tournaments.</li>
+          <li>Coordinated Human Resource Operations for various Informatics Engineering Department events, including large-scale graduation ceremonies and university-wide tournament support activities.</li>
+          <li>Managed End-to-End Event Logistics and Staffing, overseeing volunteer recruitment and task allocation to ensure the seamless execution of high-profile departmental initiatives.</li>
+        </ul>
+      </div>
+
+      <!-- Half width -->
+      <div class="glass rounded-2xl p-6 lift">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <div class="font-semibold">Expert Staff IniLhoITS2023!</div>
+            <div class="text-sm text-slate-400 mt-1">Dec 2022 — Jan 2023</div>
+          </div>
+          <span class="text-xs rounded-full border border-white/10 bg-white/5 px-3 py-1 text-slate-300">
+            Campus Event
+          </span>
+        </div>
+
+        <ul class="mt-4 text-sm text-slate-300 list-disc pl-5 space-y-1">
+          <li>Served as a Senior Lead Coordinator, managing a dedicated team of 6 staff members to ensure operational excellence and goal alignment.</li>
+          <li>Architected Organizational Workflows and Job Descriptions, defining clear responsibilities and optimizing task distribution to maintain high-performance standards within the team.</li>
+          <li>Directed Operational Flow for IniLhoITS 2023, a flagship university-wide event with over 1,000 participants, ensuring seamless execution and successful attainment of project milestones through rigorous oversight.</li>
+        </ul>
+      </div>
+
+      <div class="glass rounded-2xl p-6 lift">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <div class="font-semibold">Expert Staff Gerigi ITS 2023</div>
+            <div class="text-sm text-slate-400 mt-1">Jun 2023 — Agu 2023</div>
+          </div>
+          <span class="text-xs rounded-full border border-white/10 bg-white/5 px-3 py-1 text-slate-300">
+            Campus Event
+          </span>
+        </div>
+
+        <ul class="mt-4 text-sm text-slate-300 list-disc pl-5 space-y-1">
+          <li>Executive Lead Coordinator, managing a diverse team of 10 staff members to drive organizational goals and ensure high-level operational synergy.</li>
+          <li>Architected Organizational Workflows and Job Descriptions, defining clear responsibilities and optimizing task distribution to maintain high-performance standards within the team.</li>
+          <li>Directed Operational Flow for Gerigi ITS 2023, a flagship campus-wide event with over 6,000 participants, ensuring seamless execution and successful attainment of project milestones through rigorous oversight.</li>
+        </ul>
+      </div>
+
+      <div class="glass rounded-2xl p-6 lift lg:col-span-2">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <div class="font-semibold">
+              Head of Security, Licensing, dan Facilitator Division - DiesNatalis ITS ke-63
+            </div>
+            <div class="text-sm text-slate-400 mt-1">Sep 2023 — Oct 2023</div>
+          </div>
+          <span class="text-xs rounded-full border border-white/10 bg-white/5 px-3 py-1 text-slate-300">
+            Campus Event
+          </span>
+        </div>
+        <ul class="mt-4 text-sm text-slate-300 list-disc pl-5 space-y-1">
+          <li>Head of Security, Licensing, and Facilitation, leading a large-scale division of 60 personnel to manage the safety, legal compliance, and operational flow of the 63rd ITS Anniversary (Dies Natalis).</li>
+          <li>Strategized and Delegated Multi-Layered Workflows, overseeing site licensing, venue security protocols, and crowd control strategies to ensure the seamless execution of high-traffic events.</li>
+          <li>Directed Large-Scale Crowd Management, successfully coordinating the safety and security of thousands of supporters, ensuring order and incident-free operations throughout the prestigious university celebration.</li>
+          </li>
+        </ul>
+      </div>
+
+    <div class="glass rounded-2xl p-6 lift">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <div class="font-semibold">Staff of Licensing and Logistics Schematics 2022</div>
+            <div class="text-sm text-slate-400 mt-1">Apr 2022 — Nov 2022</div>
+          </div>
+          <span class="text-xs rounded-full border border-white/10 bg-white/5 px-3 py-1 text-slate-300">
+            Campus Event
+          </span>
+        </div>
+
+        <ul class="mt-4 text-sm text-slate-300 list-disc pl-5 space-y-1">
+          <li>Operations Staff for Logistics, Security, and Licensing, serving as a multi-functional coordinator for Schematics 2022, managing legal permits, venue procurement, and event security protocols.</li>
+          <li>Liaised with Law Enforcement and University Authorities to secure crowd permits and facility licenses, while concurrently managing the procurement and fabrication of essential event properties.</li>
+          <li>Executed High-Profile Crowd Control and VIP Protection, successfully maintaining order during peak attendance and providing professional security escorts for guest artists.</li>
+        </ul>
+      </div>
+
+      <div class="glass rounded-2xl p-6 lift">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <div class="font-semibold">Staff of Licensing  Gerigi ITS 2022</div>
+            <div class="text-sm text-slate-400 mt-1">Jun 2022 — Agu 2022</div>
+          </div>
+          <span class="text-xs rounded-full border border-white/10 bg-white/5 px-3 py-1 text-slate-300">
+            Campus Event
+          </span>
+        </div>
+
+        <ul class="mt-4 text-sm text-slate-300 list-disc pl-5 space-y-1">
+          <li>Operations Staff for Licensing and Logistics, serving as a multi-functional coordinator for Gerigi ITS 2022, managing venue licensing, equipment procurement, and event logistics.</li>
+          <li>Facilitated the rental of multiple locations across ITS for event operations and coordinated the setup and security of all logistical elements.</li>
+          <li>Successfully negotiated venue rentals, implemented licensing systems, and maintained order during Gerigi ITS 2022 with over 6000 attendees.</li>
+        </ul>
+      </div>
+
+      <div class="glass rounded-2xl p-6 lift lg:col-span-2">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <div class="font-semibold">
+              Head of Security and Licensing Division - ISOMETRIC ITS 2023
+            </div>
+            <div class="text-sm text-slate-400 mt-1">Mar 2023 — Jun 2023</div>
+          </div>
+          <span class="text-xs rounded-full border border-white/10 bg-white/5 px-3 py-1 text-slate-300">
+            Campus Event
+          </span>
+        </div>
+        <ul class="mt-4 text-sm text-slate-300 list-disc pl-5 space-y-1">
+          <li>Leading a division of 40 personnel to manage venue licensing, event safety, and operational order for a large-scale competition and seminar.</li>
+          <li>Handled, distributed jobdesk, and monitored job flow for 40 division members in fulfilling licensing requirements for event venues and ensuring security and order during ISOMETRIC 2023.</li>
+          <li>Successfully executed ISOMETRIC 2023, handling hundreds of participants while ensuring all job flows ran smoothly.</li>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="py-14 border-t border-white/10">
+  <div class="reveal">
+    <h2 class="text-2xl font-bold">Skills</h2>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
+      <div class="glass rounded-2xl p-5 lift h-full">
+        <div class="flex items-center gap-2 font-semibold">
+          <i data-lucide="layout" class="w-5 h-5"></i> Fullstack
+        </div>
+        <ul class="mt-3 text-sm text-slate-300 space-y-1 list-disc pl-5">
+          <li>MERN Stack</li>
+          <li>Vue / React + ASP.NET Core Web API + SQL Server</li>
+          <li>Vue / React + Laravel + Rest API + MYSQL</li>
+        </ul>
+      </div>
+
+      <div class="glass rounded-2xl p-5 lift h-full">
+        <div class="flex items-center gap-2 font-semibold">
+          <i data-lucide="server" class="w-5 h-5"></i> Database
+        </div>
+        <ul class="mt-3 text-sm text-slate-300 space-y-1 list-disc pl-5">
+          <li>MYSQL</li>
+          <li>SQL Server</li>
+          <li>MongoDB</li>
+        </ul>
+      </div>
+
+      <div class="glass rounded-2xl p-5 lift h-full">
+        <div class="flex items-center gap-2 font-semibold">
+          <i data-lucide="git-branch" class="w-5 h-5"></i> Machine Learning dan AI
+        </div>
+        <ul class="mt-3 text-sm text-slate-300 space-y-1 list-disc pl-5">
+          <li>Transformer Model (ORT, Dual visual Transformer)</li>
+          <li>Deep Learning dengan PyTorch / TensorFlow</li>
+          <li>Natural Language Processing</li>
+          <li>Python dengan library Pandas, Numpy, Scikit-learn</li>
+          <li>Automated Agentic AI</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- FOOTER (tetap ada sesuai permintaan) -->
+    <footer class="py-8 text-center text-xs text-slate-500">
+      © <span id="year"></span> Javier Nararya Aqsa Setiyono
+    </footer>
+  </main>
+
+  <!-- MODAL -->
+  <div id="modal" class="fixed inset-0 hidden items-center justify-center bg-black/60 p-4 z-[99]">
+    <div class="max-w-2xl w-full glass rounded-2xl p-5">
+      <div class="flex items-start justify-between gap-3">
+        <div>
+          <h3 id="mTitle" class="text-lg font-semibold"></h3>
+          <p id="mDesc" class="mt-1 text-sm text-slate-300"></p>
+        </div>
+        <button id="closeModal" class="rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 px-3 py-2 text-xs">
+          Close
+        </button>
+      </div>
+      <img id="mImg" class="mt-4 rounded-xl border border-white/10 w-full object-cover" alt="project"/>
+      <div id="mTech" class="mt-3 flex flex-wrap gap-2"></div>
+      <div id="mLinks" class="mt-4 flex gap-3"></div>
+    </div>
+  </div>
+
+  <!-- Fixed toast -->
+  <div id="toastFixed"
+    class="fixed bottom-6 left-1/2 -translate-x-1/2 hidden rounded-xl border border-white/10 bg-slate-950/80 px-4 py-2 text-sm text-emerald-300 backdrop-blur">
+    Berhasil Copy!
+  </div>
+
+  <script>
+    // ===== EDIT DATA =====
+    const PROFILE = {
+      name: "Javier Nararya Aqsa Setiyono",
+      email: "javiernararya93.@gmail.com",
+      phone: "+62 812-4587-2525",
+      whatsapp: "6281245872525",
+      linkedin: "https://www.linkedin.com/in/javiernararya/",
+      github: "https://github.com/Javier1504",
+      blog: "https://javiernararyaa.blogspot.com/",
+      cv: "./assets/CV.pdf"
+    };
+
+    const PROJECTS = [
+      {
+        title: "AskAiApp - AI and human Q&A Web Base App",
+        tag: "fullstack website",
+        desc: "A full-stack web-based application for Q&A featuring ChatGPT, Gemini, and Human response services. The login and registration methods utilize Gmail with authentic verification via OTP codes. A token usage statistics feature is available on the Admin Page to restrict prompting. Users will have their usage limited once the prompting token count reaches 6,000, after which they can resume prompting two hours later.",
+        tech: ["HTTPS", "ASP.NET Core Web Api", "IIS", "JWT", "SQL Server", "C#", "OTP", "JS"],
+        img: "./assets/projects/askaiapp.png",
+        links: { demo: "#", repo: "#" }
+      },
+      {
+        title: "UrbanTrafficSight AI Captioner - Image Captioning for Urban Traffic Scene",
+        tag: "Machine learning + Fullstack",
+        desc: "A full-stack application built with React and Laravel, utilizing an SQLite database, which implements image captioning specifically for urban traffic imagery using Object Relation Transformer and Beam Search. The model has been tested and developed through my Final Project. The constructed model is proven to adapt to my own custom dataset—which is relatively small in size—while achieving relatively high evaluation metrics across BLEU-1 to BLEU-4, Rouge-L, and BERTScore.",
+        tech: ["Transformer", "Deep Learning", "Beam Search", "Laravel" ,"React" ,"SQLite", "Machine Learning"],
+        img: "./assets/projects/UrbanTrafficSight.png",
+        links: { demo: "#", repo: "#" }
+      },
+      {
+        title: "Instapost - Social Media Web Base App with NoSQL Database",
+        tag: "fullstack website",
+        desc: "A fullstack web base application with a social media theme using PHP framework and NoSQL database. Features include mutual users, posting photos or videos, liking or commenting on other users' posts, sending messages to mutual users, custom profiles, and other features. Privacy settings ensure that non-mutual users cannot send messages or view each other's stories.",
+        tech: ["PHP", "MongoDB", "CSS" , "JS"],
+        img: "./assets/projects/instapost.png",
+        links: { demo: "#", repo: "#" }
+      },
+      {
+        title: "Image Captioning Traffic Scenes",
+        tag: "ai + computer vision",
+        desc: "An Indonesian-language Transformer-based captioning system, evaluated using BLEU, ROUGE, and BERTScore metrics.",
+        tech: ["PyTorch", "Transformer", "Beam Search"],
+        img: "./assets/projects/TA.png",
+        links: { demo: "#", repo: "#" }
+      },
+      {
+        title: "E-Market - NextERP Web Base App",
+        tag: "fullstack website",
+        desc: "A fullstack web base application with an e-commerce theme using PHP framework and MySQL database. Features include product listing, shopping cart, user authentication, order management, and admin panel.",
+        tech: ["PHP", "MySQL", "CSS" , "JS"],
+        img: "./assets/projects/E-Market.png",
+        links: { demo: "#", repo: "#" }
+      },
+      {
+        title: "Agentic AI Web Scraper for Official University Website Information",
+        tag: "automated agentic ai",
+        desc: "An automated web scraping system that extracts structured data from official university websites using AI agents, With different modules.",
+        tech: ["Python", "Playwright", "Puppeteer" , "Gemini LLM", "Agentic AI"],
+        img: "./assets/projects/AgenticAI.png",
+        links: { demo: "#", repo: "#" }
+      }
+
+      
+    ];
+
+    // ===== INIT TEXT & LINKS =====
+    const $ = (id) => document.getElementById(id);
+
+    $("emailText").textContent = PROFILE.email;
+    $("phoneText").textContent = PROFILE.phone || "-";
+
+    $("emailBtnRight").href = "mailto:" + PROFILE.email;
+
+    $("linkedin").href = PROFILE.linkedin;
+    $("github").href = PROFILE.github;
+    $("blog").href = PROFILE.blog;
+
+    $("cvBtn").href = PROFILE.cv;
+    $("year").textContent = new Date().getFullYear();
+
+    // WhatsApp
+    const wa = (PROFILE.whatsapp || "").replace(/[^\d]/g, "");
+    $("waBtn").href = wa ? `https://wa.me/${wa}` : "#";
+
+    // Icons
+    lucide.createIcons();
+
+    // ===== REVEAL =====
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => e.isIntersecting && e.target.classList.add("show"));
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+    // ===== PROJECTS RENDER =====
+    const grid = $("grid");
+    const filter = $("filter");
+    const search = $("search");
+
+    function badge(t) {
+      return `<span class="text-xs rounded-full border border-white/10 bg-white/5 px-3 py-1 text-slate-200">${t}</span>`;
+    }
+
+    function card(p, index) {
+      return `
+        <button data-index="${index}" class="project-card text-left glass rounded-2xl p-4 lift">
+          <div class="flex items-center justify-between gap-3">
+            <h3 class="font-semibold">${p.title}</h3>
+            <span class="text-[11px] uppercase tracking-wide text-slate-400">${p.tag}</span>
+          </div>
+          <p class="mt-2 text-sm text-slate-300 leading-relaxed">${p.desc}</p>
+          <img src="${p.img}" class="mt-3 rounded-xl border border-white/10 w-full h-44 object-cover" alt="project"/>
+          <div class="mt-3 flex flex-wrap gap-2">${(p.tech || []).map(badge).join(" ")}</div>
+          <div class="mt-3 text-xs text-slate-400">Klik untuk detail</div>
+        </button>
+      `;
+    }
+
+    // ===== MODAL =====
+    const modal = $("modal");
+    const closeModal = $("closeModal");
+    const mTitle = $("mTitle");
+    const mDesc = $("mDesc");
+    const mImg = $("mImg");
+    const mTech = $("mTech");
+    const mLinks = $("mLinks");
+
+    function openProject(p) {
+      mTitle.textContent = p.title;
+      mDesc.textContent = p.desc;
+      mImg.src = p.img;
+      mTech.innerHTML = (p.tech || []).map(badge).join(" ");
+
+      const demo = (p.links?.demo && p.links.demo !== "#")
+        ? `<a class="text-sm text-sky-300 hover:text-sky-200" href="${p.links.demo}" target="_blank" rel="noreferrer">Demo</a>`
+        : "";
+      const repo = (p.links?.repo && p.links.repo !== "#")
+        ? `<a class="text-sm text-slate-300 hover:text-white" href="${p.links.repo}" target="_blank" rel="noreferrer">Repo</a>`
+        : "";
+
+      mLinks.innerHTML = demo + (demo && repo ? `<span class="text-slate-500">•</span>` : "") + repo;
+
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeProject() {
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    closeModal.addEventListener("click", closeProject);
+    modal.addEventListener("click", (e) => { if (e.target === modal) closeProject(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeProject(); });
+
+    function render() {
+      const q = (search.value || "").toLowerCase().trim();
+      const f = filter.value;
+
+      const items = PROJECTS
+        .map((p, idx) => ({ p, idx }))
+        .filter(({ p }) => {
+          const matchesFilter = (f === "all") || (p.tag === f);
+          const hay = (p.title + " " + p.desc + " " + (p.tech || []).join(" ")).toLowerCase();
+          const matchesSearch = !q || hay.includes(q);
+          return matchesFilter && matchesSearch;
+        });
+
+      grid.innerHTML = items.map(({ p, idx }) => card(p, idx)).join("");
+    }
+
+    filter.addEventListener("change", render);
+    search.addEventListener("input", render);
+
+    grid.addEventListener("click", (e) => {
+      const btn = e.target.closest(".project-card");
+      if (!btn) return;
+      const idx = Number(btn.dataset.index);
+      const p = PROJECTS[idx];
+      if (p) openProject(p);
+    });
+
+    render();
+
+    // ===== COPY EMAIL (toast fixed) =====
+    const toastFixed = $("toastFixed");
+    $("copyBtn").addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(PROFILE.email);
+        toastFixed.classList.remove("hidden");
+        setTimeout(() => toastFixed.classList.add("hidden"), 1200);
+      } catch {
+        alert("Email: " + PROFILE.email);
+      }
+    });
+  </script>
+</body>
+</html>
