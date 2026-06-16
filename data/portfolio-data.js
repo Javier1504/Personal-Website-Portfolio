@@ -11,14 +11,12 @@ window.PORTFOLIO_DATA = {
     title: "Informatics Engineering Graduate • Software Engineer • AI/Computer Vision Enthusiast",
     location: "Surabaya, Indonesia",
     email: "javiernararya93@gmail.com",
-    phone: "+62 812-4587-2525",
-    whatsapp: "6281245872525",
     linkedin: "https://www.linkedin.com/in/javiernararya/",
     github: "https://github.com/Javier1504",
     blog: "https://javiernararyaa.blogspot.com/",
     cv: "./assets/CV.pdf",
     photo: "./assets/profile.jpg",
-    summary: "Informatics Engineering Graduate from Institut Teknologi Sepuluh Nopember (ITS) with a GPA of 3.59/4.00 (Cum Laude). Specialized in Computer Vision and Artificial Intelligence, with a primary research focus on Vision-Language Modeling through the development of Transformer-based Image Captioning systems and advanced Image Processing techniques. I possess a deep technical background in architecting Automated Agentic AI for Intelligent Scraping, leveraging Large Language Models (LLMs) to automate complex data extraction workflows. My versatile engineering toolkit further includes developing immersive simulations as a Virtual Reality Developer and building robust end-to-end applications through Fullstack Software Engineering. By integrating heuristic methods like Particle Swarm Optimization (PSO) with modern deep learning frameworks, I aim to bridge the gap between sophisticated visual understanding and autonomous intelligent systems."
+    summary: "Informatics Engineering graduate from Institut Teknologi Sepuluh Nopember (ITS) with a GPA of 3.59/4.00 (Cum Laude). Experienced in Software Engineering and AI-focused development, with practical exposure to Laravel, .NET, fullstack web applications, data-driven systems, Computer Vision, Image Processing, and Transformer-based Image Captioning research."
   },
 
   highlights: [
@@ -39,37 +37,30 @@ window.PORTFOLIO_DATA = {
     }
   ],
 
-  heroTags: [
-    "AI/ML (Computer Vision)",
-    "Vision-Language Transformers",
-    "Agentic AI Web Scraping (LLMs)",
-    "Fullstack Engineering",
-    "Backend APIs (.NET / Laravel)",
-    "Cloud & Deployment (IIS/SSL)",
-    "Databases (SQL Server / MySQL)"
-  ],
-
   experiences: [
     {
       title: "Junior Software Engineer - PT Sentra Vidya Utama (SEVIMA)",
-      period: "Dec 2025 — Now",
-      category: "Work",
+      period: "Dec 2025 — Jun 2026",
+      category: "Onsite Work",
       featured: true,
       descriptions: [
-        "Architected an Autonomous Agentic AI Framework to automate large-scale data acquisition for the maukuliah.id (SEVIMA) university database, significantly increasing data coverage and completeness through intelligent automation.",
-        "Engineered robust data extraction pipelines using Playwright, Chromium, and Puppeteer, conducting comprehensive audits within staging environments to ensure high-fidelity retrieval from complex web architectures.",
-        "Integrated Gemini LLM for intelligent parsing, leveraging Large Language Models to interpret unstructured content and map it into precise, predefined schemas, ensuring superior data integrity compared to traditional scraping methods."
+        "Created, enhanced, and deploy multiple features in the IT Asset Management production level for Sentra Utama Group as part of the ORION Team, including stock opname, logging, audit trail, and asset management workflow improvements.",
+        "Created dashboard with google analytics tracking adoption rate for Wiki SEVIMA production level to measure user adoption rate, monitor page engagement, and analyze user activity based on username, division, and accessed page.",
+        "Improving and Testing Laravel based internal systems, database workflows, and deploy with Jenkins.",
+        "Maintenance Wiki SEVIMA production level with migrating data, including content migration into BookStack based Wiki SEVIMA, Docker based local setup, and staging preparation.",
+        "Built an Agentic AI based web automation system to collect and process structured information from official university websites."
       ]
     },
     {
       title: ".Net developer - PT Mitra Transformasi Digital (Mitral)",
       period: "Nov 2025 — Now",
-      category: "Work",
+      category: "Remote Work",
       featured: true,
       descriptions: [
-        "Engineered a Hybrid Conversational Platform integrating ChatGPT and Gemini LLMs with a human-in-the-loop answering system, developed using ASP.NET Core Web API and C# .NET.",
-        "Implemented Secure Authentication & Data Architecture by designing a Gmail-based OTP system and managing complex relational data using SQL Server and Entity Framework Core.",
-        "Managed Full-cycle Deployment & ERP Integration, including the successful deployment of the platform under HTTPS protocols for secure production and the development of business solutions utilizing the NextERP ecosystem."
+        "Engineered a Hybrid Conversational Platform integrating ChatGPT and Gemini LLMs for wering system, developed using ASP.NET Core Web API and C# .NET.",
+        "Developed backend applications using .NET C#, ASP.NET Core Web API, SQL Server, and Entity Framework Core to support API-based business workflows.",
+        "Built application modules with CRUD operations, authentication, role based access control, admin workflows, and database-driven process management.",
+        "Created a Laravel Filament-based IT Management System for IT asset management, maintenance requests, procurement, technician assignment, approval workflow, and monitoring."
       ]
     },
     {
@@ -126,12 +117,12 @@ window.PORTFOLIO_DATA = {
       ]
     },
     {
-      title: "IT Support Software Tester and Documentation for Geographical Information System of Kapuas",
+      title: "Software IT Support",
       period: "Agu 2024 — Dec 2024",
       category: "Contract",
       featured: true,
       descriptions: [
-        "Conducted functional testing and QA for GIS modules, identifying critical bugs to ensure stability.",
+        "Handle testing and documentation of Kapuas Geographic Information Systems in lecturer's project",
         "Authored technical documentation and user manuals for stakeholders and end-users."
       ]
     },
@@ -152,8 +143,8 @@ window.PORTFOLIO_DATA = {
       category: "Project",
       featured: false,
       descriptions: [
-        "Created a digital literacy website design for SMAN 2 Surabaya in a group setting.",
-        "Developed the design using Figma and delivered the final handoff."
+        "Using the Figma to create prototype of Website Literasi Digital Smada Surabaya.",
+        "Lead the project team to make this protoype website."
       ]
     }
   ],
@@ -161,7 +152,7 @@ window.PORTFOLIO_DATA = {
   projects: [
     {
       title: "AskAiApp - AI and human Q&A Web Base App",
-      tag: "Fullstack",
+      tag: "Fullstack Web",
       year: 2025,
       desc: "A fullstack web-based application for Q&A featuring ChatGPT, Gemini, and Human response services. The login and registration methods utilize Gmail with authentic verification via OTP codes. A token usage statistics feature is available on the Admin Page to restrict prompting. Users will have their usage limited once the prompting token count reaches 6,000, after which they can resume prompting two hours later.",
       tech: ["HTTPS", "ASP.NET Core Web Api", "IIS", "JWT", "SQL Server", "C#", "OTP", "JS"],
@@ -169,8 +160,44 @@ window.PORTFOLIO_DATA = {
       links: { demo: "#", repo: "#" }
     },
     {
+      title: "ITAM SEVIMA - IT Asset Management System web base app",
+      tag: "Fullstack Web Development",
+      year: 2026,
+      desc: "A Laravel and PostgreSQL-based IT Asset Management system developed to support asset tracking, stock opname, maintenance workflows, verification processes, logging, audit trail, and reporting for SEVIMA and Sentra Utama Group. I contributed to feature development, debugging, database workflow improvements, role-based access handling, and deployment readiness as part of the ORION Team.",
+      tech: ["Laravel", "PHP", "PostgreSQL", "Blade", "JavaScript", "GitLab", "Docker"],
+      img: "./assets/projects/ITAM.png",
+      links: { demo: "#", repo: "#" }
+    },
+    {
+      title: "KNOWLEDGE SEVIMA PRODUCTION - utilizing Google Analytics for Adoption Rate Dashboard, Landing Page, and Data Export Features",
+      tag: "Fullstack Web Development and Data Analytics",
+      year: 2026,
+      desc: "A BookStack-based knowledge management platform enhanced with Google Analytics tracking, adoption rate monitoring, landing page and operational data export features. I implemented GA4 tracking to capture user activity using username, guest, role, division, and page visit metadata, supported adoption rate dashboard requirements, bookstack page PDF export functionality, and contributed to debugging, maintenance, data migration, Docker-based deployment preparation, Jenkins deployment support, and production readiness for Knowledge SEVIMA.",
+      tech: ["BookStack", "Laravel", "Jenkins", "MySQL", "Docker", "GA4", "JavaScript"],
+      img: "./assets/projects/KnowledgeSevima.png",
+      links: { demo: "#", repo: "#" }
+    },
+    {
+      title: "Wiki Internal SEVIMA Production - GA4 Adoption Rate Tracking and Data Export Features",
+      tag: "Web Development and Data Analytics",
+      year: 2026,
+      desc: "An internal BookStack-based knowledge management platform used by SEVIMA employees to access and manage company knowledge. I implemented GA4 tracking to capture user activity using username, role, division, and page visit metadata, supported adoption rate monitoring for internal usage analysis, and contributed to debugging, maintenance, data migration, Docker-based deployment preparation, Jenkins deployment support, and production readiness.",
+      tech: ["BookStack", "Laravel", "Jenkins", "MySQL", "Docker", "GA4", "JavaScript"],
+      img: "./assets/projects/WikiInternalSevima.png",
+      links: { demo: "#", repo: "#" }
+    },
+    {
+      title: "IT Asset Management - Laravel Filament",
+      tag: "Asset Management System",
+      year: 2026,
+      desc: "A Laravel Filament-based IT Asset Management system developed during my work at Mitral to support structured asset data management and operational monitoring. The system includes asset records, vendor management, asset category management, maintenance tracking, assignment workflows, and administrative dashboards. I contributed to building Filament resources, forms, tables, relationships between modules, database structure, CRUD workflows, and UI improvements to make asset management processes more organized, maintainable, and easier to operate.",
+      tech: ["Laravel", "Filament", "PHP", "PostgreSQL", "Admin Panel"],
+      img: "./assets/projects/ITAssetManagement.png",
+      links: { demo: "#", repo: "#" }
+    },
+    {
       title: "UrbanTrafficSight AI Captioner - Image Captioning for Urban Traffic Scene",
-      tag: "Machine learning + Fullstack",
+      tag: "Machine learning + Fullstack Application",
       year: 2025,
       desc: "A fullstack application built with React and Laravel, utilizing an SQLite database, which implements image captioning specifically for urban traffic imagery using Object Relation Transformer and Beam Search. The model has been tested and developed through my Final Project. The constructed model is proven to adapt to my own custom dataset—which is relatively small in size—while achieving relatively high evaluation metrics across BLEU-1 to BLEU-4, Rouge-L, and BERTScore.",
       tech: ["Transformer", "Deep Learning", "Beam Search", "Laravel", "React", "SQLite", "Machine Learning"],
@@ -179,8 +206,8 @@ window.PORTFOLIO_DATA = {
     },
     {
       title: "Instapost - Social Media Web Base App with NoSQL Database",
-      tag: "fullstack website",
-      year: 2024,
+      tag: "Fullstack Web Application",
+      year: 2026,
       desc: "A fullstack web base application with a social media theme using PHP framework and NoSQL database. Features include mutual users, posting photos or videos, liking or commenting on other users' posts, sending messages to mutual users, custom profiles, and other features. Privacy settings ensure that non-mutual users cannot send messages or view each other's stories.",
       tech: ["PHP", "MongoDB", "CSS", "JS"],
       img: "./assets/projects/InstaPost.png",
@@ -188,7 +215,7 @@ window.PORTFOLIO_DATA = {
     },
     {
       title: "Image Captioning Traffic Scenes",
-      tag: "research + computer vision",
+      tag: "Research + Computer Vision",
       year: 2025,
       desc: "An Indonesian-language Transformer-based captioning system, evaluated using BLEU, ROUGE, and BERTScore metrics.",
       tech: ["PyTorch", "Transformer", "Beam Search"],
@@ -197,16 +224,16 @@ window.PORTFOLIO_DATA = {
     },
     {
       title: "E-Market - NextERP Web Base App",
-      tag: "fullstack website",
-      year: 2024,
+      tag: "Fullstack Web Application",
+      year: 2025,
       desc: "A fullstack web base application with an e-commerce theme using PHP framework and MySQL database. Features include product listing, shopping cart, user authentication, order management, and admin panel.",
       tech: ["PHP", "MySQL", "CSS", "JS"],
       img: "./assets/projects/E-Market.png",
       links: { demo: "#", repo: "#" }
     },
     {
-      title: "Agentic AI Web Scraper for Official University Website Information",
-      tag: "automated agentic ai",
+      title: "Scraper with AI for Official University Website Information",
+      tag: "Automated AI Web Scraping",
       year: 2026,
       desc: "An automated web scraping system that extracts structured data from official university websites using AI agents, with modular pipelines.",
       tech: ["Python", "Playwright", "Puppeteer", "Gemini LLM", "Agentic AI"],
@@ -215,7 +242,7 @@ window.PORTFOLIO_DATA = {
     },
     {
       title: "License Plate Recognition System with yolov8",
-      tag: "computer vision",
+      tag: "Computer Vision",
       year: 2024,
       desc: "A license plate recognition system using YOLOv8 for object detection and OCR for text extraction.",
       tech: ["Python", "YOLOv8", "OpenCV", "OCR"],
@@ -309,21 +336,20 @@ window.PORTFOLIO_DATA = {
       icon: "code-2",
       title: "Software Engineering",
       items: [
-        "Fullstack Web Apps (React / Vue)",
-        "Backend API (ASP.NET Core / Laravel)",
-        "Auth & Security (JWT, OTP)",
-        "Deployment & Ops (IIS, SSL, Windows Server)",
+        "Fullstack Web App Development",
+        "Backend API",
+        "Deployment",
         "System Integration & Testing"
       ]
     },
     {
       icon: "brain-circuit",
-      title: "AI & Research Computer Vision",
+      title: "AI & Computer Vision",
       items: [
         "Computer Vision & Vision Language Models",
-        "Transformers for Image Captioning (ORT, Beam Search)",
-        "Deep Learning (PyTorch / TensorFlow)",
-        "Agentic Web Scraping with LLMs"
+        "Transformers for Image Captioning",
+        "Deep Learning",
+        "Automated AI"
       ]
     }
   ]
