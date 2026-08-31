@@ -44,11 +44,11 @@ window.PORTFOLIO_DATA = {
       category: "Onsite Work",
       featured: true,
       descriptions: [
-        "Created, enhanced, and deploy multiple features in the IT Asset Management production level for Sentra Utama Group as part of the ORION Team, including stock opname, logging, audit trail, and asset management workflow improvements.",
-        "Created dashboard with google analytics tracking adoption rate for Wiki SEVIMA production level to measure user adoption rate, monitor page engagement, and analyze user activity based on username, division, and accessed page.",
-        "Improving and Testing Laravel based internal systems, database workflows, and deploy with Jenkins.",
-        "Maintenance Wiki SEVIMA production level with migrating data, including content migration into BookStack based Wiki SEVIMA, Docker based local setup, and staging preparation.",
-        "Built an Agentic AI based web automation system to collect and process structured information from official university websites."
+        "Developed, enhanced, and deployed multiple features in the IT Asset Management production level for Sentra Utama Group as part of the ORION Team, including stock opname, logging, audit trail, and asset management workflow improvements, successfully managing IT assets for 200+ employees.",
+        "Created dashboard with Google Analytics tracking adoption rate for Wiki SEVIMA and Knowledge Sevim websites production level to measure user adoption rate, monitor page engagement, and analyze user activity, delivering strategic insights for C-level executives by processing over 8,000+ user activities.",
+        "Improving and testing Laravel-based internal systems and database workflows, successfully deploying Knowledge Sevima and Wiki SEVIMA websites with Jenkins.",
+        "Maintenance Wiki SEVIMA production level with migrating data, including content migration into BookStack-based Wiki SEVIMA, Docker-based local setup, and staging preparation, helping over 40 persons across 3 teams to migrate data and develop.",
+        "Built an Agentic AI-based web automation system to collect and process structured information from official university websites."
       ]
     },
     {
@@ -57,10 +57,12 @@ window.PORTFOLIO_DATA = {
       category: "Remote Work",
       featured: true,
       descriptions: [
-        "Engineered a Hybrid Conversational Platform integrating ChatGPT and Gemini LLMs for wering system, developed using ASP.NET Core Web API and C# .NET.",
         "Developed backend applications using .NET C#, ASP.NET Core Web API, SQL Server, and Entity Framework Core to support API-based business workflows.",
-        "Built application modules with CRUD operations, authentication, role based access control, admin workflows, and database-driven process management.",
-        "Created a Laravel Filament-based IT Management System for IT asset management, maintenance requests, procurement, technician assignment, approval workflow, and monitoring."
+        "Built application modules with CRUD operations, authentication, role-based access control, admin workflows, and database-driven process management.",
+        "Developed NextERP-based project modules to support enterprise resource planning and internal operational workflows.",
+        "Created a Laravel Filament-based IT Management System for IT asset management, maintenance requests, procurement, technician assignment, approval workflow, and monitoring.",
+        "Built a full-stack Smart Pharmacy application using React, FastAPI, PostgreSQL, and Docker.",
+        "Developed AI chatbot leveraging the Qwen LLM architecture to enhance automated user interactions and integrating to Smart Pharmacy app."
       ]
     },
     {
@@ -157,6 +159,15 @@ window.PORTFOLIO_DATA = {
       desc: "A fullstack web-based application for Q&A featuring ChatGPT, Gemini, and Human response services. The login and registration methods utilize Gmail with authentic verification via OTP codes. A token usage statistics feature is available on the Admin Page to restrict prompting. Users will have their usage limited once the prompting token count reaches 6,000, after which they can resume prompting two hours later.",
       tech: ["HTTPS", "ASP.NET Core Web Api", "IIS", "JWT", "SQL Server", "C#", "OTP", "JS"],
       img: "./assets/projects/AskAiApp.png",
+      links: { demo: "#", repo: "#" }
+    },
+    {
+      title: "Medical Bot Assistant - Chatbot for Drugstore and Pharmacy",
+      tag: "LLM Based AI Chatbot and Fullstack Web",
+      year: 2026,
+      desc: "Medbot is a pharmacy web application featuring an LLM powered chatbot assistant built on Qwen 3B, with responses grounded in the pharmacy's own live database rather than static training data. Built with JavaScript as frontend, FastAPI as backend, and PostgreSQL database via Docker, it also let customers upload prescription photos for pharmacist review and track order status in real time through a receipt style tracking page.",
+      tech: ["Qwen 3B", "JavaScript", "PostgreSQL", "LLM", "FastAPI"],
+      img: "./assets/projects/Medbot.png",
       links: { demo: "#", repo: "#" }
     },
     {
@@ -331,9 +342,19 @@ window.PORTFOLIO_DATA = {
     }
   ],
 
-  skills: [
+  Official Skills Certificates and Main Skills: [
     {
       icon: "code-2",
+      title: "Official Skills Certificates",
+      items: [
+        "Web Developer Assistant from BNSP - (Valid until Augustus 2030)",
+        "TOEIC English Proficiency from Official ITC - Score 685 (Valid until June 2028)",
+        "OpenCV for Python Developers from LinkedIn - (Valid lifetime)",
+        "System Integration & Testing"
+      ]
+    },
+    {
+      icon: "award",
       title: "Software Engineering",
       items: [
         "Fullstack Web App Development",
