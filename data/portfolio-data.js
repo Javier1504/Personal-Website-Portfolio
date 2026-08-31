@@ -342,12 +342,12 @@ window.PORTFOLIO_DATA = {
     }
   ],
 
-  Official Skills Certificates and Main Skills: [
+   Skills: [
     {
       icon: "code-2",
       title: "Official Skills Certificates",
       items: [
-        "Web Developer Assistant from BNSP - (Valid until Augustus 2030)",
+        "Web Developer Assistant from BNSP - (Valid until August 2030)",
         "TOEIC English Proficiency from Official ITC - Score 685 (Valid until June 2028)",
         "OpenCV for Python Developers from LinkedIn - (Valid lifetime)",
         "System Integration & Testing"
